@@ -4,7 +4,7 @@
 
 import {Asset, AssetSystem, ImageAsset, JSONAsset} from "oxygen-core";
 
-interface TileSetAssetData
+export interface TileSetAssetData
 {
     width : number;
     height : number;

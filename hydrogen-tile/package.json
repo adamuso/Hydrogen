@@ -2,9 +2,16 @@
   "name": "hydrogen-tile",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "bin/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "oxygen-core": "^1.0.29"
+  },
+  "devDependencies": {
+    "@types/gl-matrix": "^2.2.34",
+    "@types/oxygen-core": "^0.0.1"
   },
   "keywords": [
     "hydrogen",
@@ -12,6 +19,7 @@
     "tileset",
     "grid"
   ],
+  "types": "index.d.ts",
   "author": "Adam Ogiba",
   "license": "ISC"
 }

@@ -5,6 +5,14 @@
 import {System} from "oxygen-core";
 import TileFactory from "./TileFactory";
 
+declare module "oxygen-core"
+{
+    export interface AllSystems
+    {
+        TileFactorySystem : TileFactorySystem;
+    }
+}
+
 export default class TileFactorySystem extends System
 {
     private factories : Map<string, typeof TileFactory>;
@@ -36,7 +44,7 @@ export default class TileFactorySystem extends System
     public register(factoryType : typeof TileFactory) : void
     {
         if(!(factoryType instanceof Function) || !factoryType.constructor)
-            throw new Error("`factoryType` is not representing a subtype information of TileFactory")
+            throw new Error("`factoryType` is not representing a subtype information of TileFactory");
 
         this.factories.set(factoryType.constructor.name, factoryType);
     }
@@ -44,7 +52,7 @@ export default class TileFactorySystem extends System
     public unregister(factoryType : typeof TileFactory) : void
     {
         if(!(factoryType instanceof Function) || !factoryType.constructor)
-            throw new Error("`factoryType` is not representing a subtype information of TileFactory")
+            throw new Error("`factoryType` is not representing a subtype information of TileFactory");
 
         this.factories.delete(factoryType.constructor.name);
     }

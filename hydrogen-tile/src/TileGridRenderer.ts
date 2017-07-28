@@ -2,8 +2,6 @@
  * Created by adame on 27.07.2017.
  */
 
-///<reference path="../node_modules/hydrogen-core/src/oxygen.d.ts"/>
-
 import { VerticesRenderer, RenderSystem, System, Sampler } from "oxygen-core";
 import TileSetAsset from "./TileSetAsset";
 import Tile from "./Tile";
