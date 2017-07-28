@@ -4,7 +4,75 @@
 
 declare module "oxygen-core"
 {
-    class RenderSystem
+    interface Sampler
+    {
+        texture : string,
+        filtering : string
+    }
+
+    class Asset
+    {
+        public readonly owner : AssetSystem;
+        public readonly  protocol : string;
+        public readonly  filename : string;
+        public data : any;
+
+        public constructor(owner : AssetSystem, protocol : string, filename : string);
+        public dispose() : void;
+        public load() : Promise<any>;
+        public onReady() : void
+    }
+
+    class JSONAsset<TData> extends Asset
+    {
+        public data : TData;
+
+        load() : Promise<JSONAsset<TData>>;
+
+        public static factory(...args : any[]) : JSONAsset<any>;
+    }
+
+
+    class ImageAsset
+    {
+        public data : HTMLImageElement;
+
+        public dispose() : void;
+        public load() : Promise<ImageAsset>;
+        public static factory(...args : any[]) : ImageAsset;
+    }
+
+    class System
+    {
+        public dispose() : void;
+
+        public static readonly systems : { [key: string] : System };
+
+        public static get(typename : string) : System;
+        public static get<T>(typename : string) : T;
+        public static register(system : System) : void;
+    }
+
+    class AssetSystem extends System
+    {
+        public readonly pathPrefix : string;
+        public readonly fetchOptions : any;
+        public readonly events : any;
+
+        public constructor(pathPrefix : string, fetchOptions : any);
+        public dispose() : void;
+        public registerProtocol(protocol : string, assetConstructor : Function) : void;
+        public unregisterProtocol(protocol : string) : void;
+        public get(path : string) : any;
+
+        public load<T>(path : string) : Promise<T>;
+        public loadSequence(paths : string[]) : any[];
+        public loadAll(paths : string[]) : Promise<any[]>;
+        public unload(path : string) : void;
+        public onUnregister() : void;
+    }
+
+    class RenderSystem extends System
     {
 
     }
