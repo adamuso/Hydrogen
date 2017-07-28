@@ -1,0 +1,19 @@
+{
+  "name": "hydrogen-core",
+  "version": "0.0.1",
+  "dependencies": {
+    "oxygen-core": "^1.0.24"
+  },
+  "main": "bin/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "oxygen",
+    "hydrogen",
+    "core"
+  ],
+  "author": "Adam Ogiba",
+  "license": "ISC",
+  "description": ""
+}
