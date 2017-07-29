@@ -37,7 +37,7 @@ vec4.set(RenderSystem.clearColor, 1, 1, 1, 1);
     let configAsset = await AssetSystem.load<ConfigAsset>('json://config.json');
     await AssetSystem.loadSequence(configAsset.data.assets);
 
-    System.events.triggerLater(
+    (<any>System).events.triggerLater(
             'change-scene',
             'scene://scenes/game.json');
 })();

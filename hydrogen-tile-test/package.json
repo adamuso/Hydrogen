@@ -21,10 +21,6 @@
     "hydrogen",
     "core"
   ],
-  "devDependencies": {
-    "@types/gl-matrix": "^2.2.34",
-    "@types/oxygen-core": "^0.0.1"
-  },
   "author": "Adam Ogiba",
   "license": "ISC",
   "description": ""
