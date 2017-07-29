@@ -15,8 +15,7 @@
   },
   "uniforms": {
     "uModelView": "model-view-matrix",
-    "uProjection": "projection-matrix",
-    "uColor": [ 1, 1, 1, 1 ]
+    "uProjection": "projection-matrix"
   },
   "samplers": {
     "sBase": {

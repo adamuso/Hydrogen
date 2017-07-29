@@ -61,6 +61,12 @@ export default class TileSetAsset extends Asset
 
         const imageAsset = await this.owner.load<ImageAsset>(`image://${data.image}`);
 
+        if(!data.width)
+            data.width = Math.floor(imageAsset.data.width / data.tileSize);
+
+        if(!data.height)
+            data.height = Math.floor(imageAsset.data.height / data.tileSize);
+
         this.data = {
             descriptor: data,
             image: imageAsset.data

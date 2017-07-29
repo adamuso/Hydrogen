@@ -1,6 +1,4 @@
 {
   "image": "images/tileset.png",
-  "width": 20,
-  "height": 20,
   "tileSize": 32
 }
