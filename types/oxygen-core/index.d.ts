@@ -54,16 +54,11 @@ declare module "oxygen-core"
 
     export class JSONAsset<TData> extends Asset
     {
-        public data : TData;
+        public data: TData;
 
-        load() : Promise<JSONAsset<TData>>;
+        load(): Promise<JSONAsset<TData>>;
 
-        public static factory(...args : any[]) : JSONAsset<any>;
-    }
-
-    export class ConfigAsset extends Asset
-    {
-
+        public static factory(...args: any[]): JSONAsset<any>;
     }
 
     export class ImageAsset extends Asset

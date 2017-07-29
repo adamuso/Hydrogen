@@ -8,7 +8,7 @@
     "postinstall": "node ./node_modules/typescript/bin/tsc -p ."
   },
   "dependencies": {
-    "oxygen-core": "^1.0.29",
+    "oxygen-core": "1.0.32",
     "typescript": "^2.4.2"
   },
   "keywords": [

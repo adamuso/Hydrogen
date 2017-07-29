@@ -2,7 +2,7 @@
  * Created by adame on 28.07.2017.
  */
 
-import { lazyInitialization, System, ConfigAsset } from "oxygen-core";
+import {JSONAsset, lazyInitialization, System} from "oxygen-core";
 import { vec4 } from 'gl-matrix';
 import { Tile } from "hydrogen-tile";
 import {lazyHydrogenInitialization} from "hydrogen-core";
@@ -34,7 +34,7 @@ vec4.set(RenderSystem.clearColor, 1, 1, 1, 1);
 
 (async() =>
 {
-    let configAsset = await AssetSystem.load<ConfigAsset>('json://config.json');
+    let configAsset = await AssetSystem.load<JSONAsset<{ assets : string[] }>>('json://config.json');
     await AssetSystem.loadSequence(configAsset.data.assets);
 
     (<any>System).events.triggerLater(

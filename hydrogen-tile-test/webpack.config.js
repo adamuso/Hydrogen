@@ -10,6 +10,7 @@ var BUILD_DIR = path.resolve(__dirname, 'bin');
 var APP_DIR = path.resolve(__dirname, 'generated');
 
 var SingleModuleInstancePlugin = require('single-module-instance-webpack-plugin');
+var DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin');
 
 var config = {
     entry: [
@@ -31,15 +32,11 @@ var config = {
             { from: 'static/index.html' },
             { from: 'static/assets', to: 'assets' }
         ]),
-        new SingleModuleInstancePlugin()
+        new SingleModuleInstancePlugin(),
+        DuplicatePackageCheckerPlugin
     ],
     devServer: {
         contentBase: path.resolve(__dirname, './src'),
-    },
-    resolve: {
-        alias: {
-            "oxygen-core": "../node_modules/oxygen-core"
-        }
     },
     devtool: 'source-map'
 };

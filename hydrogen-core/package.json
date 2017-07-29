@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "main": "bin/index.js",
   "dependencies": {
-    "oxygen-core": "^1.0.30",
+    "oxygen-core": "1.0.32",
     "typescript": "^2.4.2"
   },
   "scripts": {
