@@ -10,7 +10,7 @@
     "outDir": "bin",
     "noImplicitAny": true,
     "strictNullChecks": true,
-    "declarationDir": "../@types/hydrogen-tile",
+    "declarationDir": "../types/hydrogen-tile",
     "declaration": true
   },
   "exclude": [
