@@ -2,7 +2,8 @@
  * Created by adame on 27.07.2017.
  */
 
-import {Asset, AssetSystem, ImageAsset, JSONAsset} from "oxygen-core";
+import {AssetSystem, ImageAsset, JSONAsset} from "oxygen-core";
+import Asset from "oxygen-core/bin/systems/AssetSystem/Asset.js"
 
 export interface TileSetAssetData
 {
@@ -66,5 +67,10 @@ export default class TileSetAsset extends Asset
         };
 
         return this;
+    }
+
+    public static factory(...args : any[]) : TileSetAsset
+    {
+        return new TileSetAsset(args[0], args[1], args[2]);
     }
 }

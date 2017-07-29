@@ -1,0 +1,29 @@
+{
+  "name": "hydrogen-tile-test",
+  "version": "0.0.1",
+  "dependencies": {
+    "oxygen-core": "^1.0.28",
+    "webpack": "^3.4.1",
+    "copy-webpack-plugin": "^4.0.1",
+    "babel-loader": "^7.1.1",
+    "webpack-dev-server": "^2.6.1",
+    "single-module-instance-webpack-plugin": "^0.0.4"
+  },
+  "main": "bin/index.js",
+  "scripts": {
+    "dev": "./node_modules/.bin/webpack-dev-server --port 8080",
+    "build-dev": "./node_modules/.bin/webpack"
+  },
+  "keywords": [
+    "oxygen",
+    "hydrogen",
+    "core"
+  ],
+  "devDependencies": {
+    "@types/gl-matrix": "^2.2.34",
+    "@types/oxygen-core": "^0.0.1"
+  },
+  "author": "Adam Ogiba",
+  "license": "ISC",
+  "description": ""
+}

@@ -7,10 +7,8 @@
     "sourceMap": true,
     "sourceRoot": "src",
     "rootDir": "src",
-    "outDir": "bin",
-    "noImplicitAny": true,
-    "declarationDir": "../@types/hydrogen-core",
-    "declaration": true
+    "outDir": "generated",
+    "noImplicitAny": true
   },
   "exclude": [
     "node_modules"

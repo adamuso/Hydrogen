@@ -2,6 +2,24 @@
  * Created by adame on 27.07.2017.
  */
 
+declare module "oxygen-core/bin/systems/AssetSystem/Asset.js"
+{
+    import {AssetSystem} from "oxygen-core";
+
+    export default class Asset
+    {
+        public readonly owner : AssetSystem;
+        public readonly  protocol : string;
+        public readonly  filename : string;
+        public data : any;
+
+        public constructor(owner : AssetSystem, protocol : string, filename : string);
+        public dispose() : void;
+        public load() : Promise<any>;
+        public onReady() : void
+    }
+}
+
 declare module "oxygen-core"
 {
     import {vec4} from "gl-matrix";
@@ -76,7 +94,7 @@ declare module "oxygen-core"
 
         public constructor(pathPrefix : string, fetchOptions : any);
         public dispose() : void;
-        public registerProtocol(protocol : string, assetConstructor : Function) : void;
+        public registerProtocol(protocol : string, assetConstructor : () => Asset) : void;
         public unregisterProtocol(protocol : string) : void;
         public get(path : string) : any;
 

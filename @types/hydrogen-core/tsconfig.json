@@ -5,12 +5,7 @@
     "lib": ["DOM", "scripthost", "es5", "es6"],
     "noImplicitReturns": true,
     "sourceMap": true,
-    "sourceRoot": "src",
-    "rootDir": "src",
-    "outDir": "bin",
-    "noImplicitAny": true,
-    "declarationDir": "../@types/hydrogen-core",
-    "declaration": true
+    "noImplicitAny": true
   },
   "exclude": [
     "node_modules"
