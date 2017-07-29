@@ -15,7 +15,7 @@ if [ -d "types" ] && [ -f "LICENSE" ] && [ -f ".gitignore" ]; then
     echo "------- hydrogen-core -------";
     echo "";
     cd "hydrogen-core";
-    rm "node_modules/@types/*";
+    rm node_modules/@types/*;
     npm link @types/oxygen-core;
     npm install;
     npm link;
@@ -26,7 +26,7 @@ if [ -d "types" ] && [ -f "LICENSE" ] && [ -f ".gitignore" ]; then
     echo "";
 
     cd "hydrogen-tile";
-    rm "node_modules/@types/*";
+    rm node_modules/@types/*;
     npm link @types/oxygen-core;
     npm link @types/hydrogen-core;
     npm link hydrogen-core;
@@ -39,7 +39,7 @@ if [ -d "types" ] && [ -f "LICENSE" ] && [ -f ".gitignore" ]; then
     echo "";
 
     cd "hydrogen-tile-test";
-    rm "node_modules/@types/*";
+    rm node_modules/@types/*;
     npm link @types/oxygen-core;
     npm link @types/hydrogen-core;
     npm link @types/hydrogen-tile;
