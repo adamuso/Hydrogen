@@ -2,7 +2,7 @@
  * Created by adame on 27.07.2017.
  */
 
-import { VerticesRenderer, RenderSystem, System, Sampler } from "oxygen-core";
+import {VerticesRenderer, RenderSystem, System, Sampler, AssetSystem} from "oxygen-core";
 import TileSetAsset from "./TileSetAsset";
 import Tile from "./Tile";
 import TileFactory from "./TileFactory";
@@ -163,10 +163,19 @@ export default class TileGridRenderer extends VerticesRenderer
             if(typeof value !== "string")
                 throw new Error("`tilesFactory` must be a name of factory!");
 
-            const factorySystem = <TileFactorySystem>System.get("TileFactorySystem");
+            const factorySystem : TileFactorySystem = System.get<TileFactorySystem>("TileFactorySystem");
             const factoryType = factorySystem.get(value);
 
             this.tileFactory = new factoryType();
+        }
+        else if(name === "tileset")
+        {
+            if(typeof value !== "string")
+                throw new Error("`tilesFactory` must be a name of factory!");
+
+            const assetSystem : AssetSystem = System.get<AssetSystem>("AssetSystem");
+
+            this.tileSet = assetSystem.get<TileSetAsset>("tileset://" + value);
         }
         else
             super.onPropertySetup(name, value);
@@ -179,8 +188,8 @@ export default class TileGridRenderer extends VerticesRenderer
 
         const { _width, _height, _xOffset, _yOffset } = this;
 
-        this.vertices = [];
-        this.indices = [];
+        let vertices : number[] = [];
+        let indices : number[] = [];
 
         let _frameBottomRight = [0, 0];
         let _frameTopLeft = [0, 0];
@@ -198,16 +207,19 @@ export default class TileGridRenderer extends VerticesRenderer
                 _frameBottomRight[0] = (this.tiles[x + y * this.width].id % this._tileSet.width * this._tileSet.tileSize + this._tileSet.tileSize) / (this._tileSet.width * this._tileSet.tileSize);
                 _frameBottomRight[1] = (this.tiles[x + y * this.width].id / this._tileSet.width * this._tileSet.tileSize + this._tileSet.tileSize) / (this._tileSet.height * this._tileSet.tileSize);
 
-                this.vertices.push(
+                vertices.push(
                     -_xOffset, -_yOffset, _frameTopLeft[0], _frameTopLeft[1],
                     _width - _xOffset, -_yOffset, _frameBottomRight[0], _frameTopLeft[1],
                     _width - _xOffset, _height - _yOffset, _frameBottomRight[0], _frameBottomRight[1],
                     -_xOffset, _height - _yOffset, _frameTopLeft[0], _frameBottomRight[1]);
 
-                this.indices.push(indicesStart, indicesStart + 1, indicesStart + 2, indicesStart + 2, indicesStart + 3, indicesStart);
+                indices.push(indicesStart, indicesStart + 1, indicesStart + 2, indicesStart + 2, indicesStart + 3, indicesStart);
                 indicesStart += 4;
             }
         }
+
+        this.vertices = vertices;
+        this.indices = indices;
 
         this.rebuild = false;
     }

@@ -7,7 +7,7 @@ var path = require('path');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 var BUILD_DIR = path.resolve(__dirname, 'bin');
-var APP_DIR = path.resolve(__dirname, 'generated');
+var APP_DIR = path.resolve(__dirname, 'src');
 
 var SingleModuleInstancePlugin = require('single-module-instance-webpack-plugin');
 var DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin');
@@ -15,11 +15,11 @@ var DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-p
 var config = {
     entry: [
         'babel-polyfill',
-        APP_DIR + '/index.js'
+        APP_DIR + '/index.ts'
     ],
     module: {
         loaders: [
-            { test : /\.jsx?$/, include : APP_DIR, loader : 'babel-loader' },
+            { test : /\.tsx?$/, include : APP_DIR, exclude: "/node_modules/", loader : 'ts-loader' },
             { test: /\.json$/, loader: 'json-loader' }
         ]
     },
@@ -36,9 +36,16 @@ var config = {
         DuplicatePackageCheckerPlugin
     ],
     devServer: {
-        contentBase: path.resolve(__dirname, './src'),
+        contentBase: path.resolve(__dirname, './src')
     },
-    devtool: 'source-map'
+    resolve: {
+        extensions: [".tsx", ".ts", ".js"],
+        alias: {
+            "oxygen-core": path.join(__dirname, "node_modules", "oxygen-core"),
+            "gl-matrix": path.join(__dirname, "node_modules", "gl-matrix")
+        }
+    },
+    devtool: 'inline-source-map'
 };
 
 module.exports = config;

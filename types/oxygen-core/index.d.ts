@@ -91,7 +91,8 @@ declare module "oxygen-core"
         public dispose() : void;
         public registerProtocol(protocol : string, assetConstructor : () => Asset) : void;
         public unregisterProtocol(protocol : string) : void;
-        public get(path : string) : any;
+        public get(path : string) : Asset;
+        public get<T>(path : string) : T;
 
         public load<T>(path : string) : Promise<T>;
         public loadSequence(paths : string[]) : any[];
@@ -102,7 +103,7 @@ declare module "oxygen-core"
 
     export class EntitySystem extends  System
     {
-
+        public registerComponent(componentName : string, componentCreator : () => Component) : void;
     }
 
     export class RenderSystem extends System

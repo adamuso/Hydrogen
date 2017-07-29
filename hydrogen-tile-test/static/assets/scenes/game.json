@@ -1,0 +1,36 @@
+{
+  "name": "root",
+  "components": {
+    "Camera2D": {
+      "zoomOut": 512,
+      "zoomMode": "keep-aspect"
+    },
+    "TextRenderer": {
+      "shader": "shaders/text-outline-transparent.json",
+      "font": "fonts/verdana.fnt",
+      "color": "FFFFFFFF",
+      "colorOutline": "000000FF",
+      "halign": "right",
+      "valign": "middle",
+      "filtering": "nearest",
+      "text": "Hello!"
+    },
+    "TileGridRenderer": {
+      "width": 100,
+      "height": 100,
+      "tileset": "tilesets/tileset.json",
+      "shader": "shaders/sprite-transparent.json",
+      "tiles": [0, 1, 2, 3,
+        4, 5, 6, 7,
+        8, 9, 10, 11]
+    }
+  },
+  "children": [
+    {
+      "name": "tileset",
+      "components": {
+
+      }
+    }
+  ]
+}

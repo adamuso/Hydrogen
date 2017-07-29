@@ -14,8 +14,7 @@
   "main": "bin/index.js",
   "scripts": {
     "dev": "./node_modules/.bin/webpack-dev-server --port 8080",
-    "build-dev": "./node_modules/.bin/webpack",
-    "postinstall": "node ./node_modules/typescript/bin/tsc -p ."
+    "build-dev": "./node_modules/.bin/webpack"
   },
   "keywords": [
     "oxygen",
@@ -24,5 +23,9 @@
   ],
   "author": "Adam Ogiba",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "ts-loader": "^2.3.2",
+    "typescript": "^2.4.2"
+  }
 }
