@@ -15,8 +15,8 @@ export default class TileGridRenderer extends VerticesRenderer
     private _xOffset : number;
     private _yOffset : number;
     private _tileSet : TileSetAsset | null;
-    private tileFactory : TileFactory;
-    private rebuild : boolean;
+    private _tileFactory : TileFactory;
+    private _rebuild : boolean;
     private tiles : Tile[];
 
     public get cols() : number { return this._cols; }
@@ -26,7 +26,7 @@ export default class TileGridRenderer extends VerticesRenderer
             throw new Error("`value` is not type of number!");
 
         this._cols = value;
-        this.rebuild = true;
+        this._rebuild = true;
     }
 
     public get rows() : number { return this._rows; }
@@ -36,7 +36,7 @@ export default class TileGridRenderer extends VerticesRenderer
             throw new Error("`value` is not type of number!");
 
         this._rows = value;
-        this.rebuild = true;
+        this._rebuild = true;
     }
 
     public get xOffset() : number { return this._xOffset; }
@@ -46,7 +46,7 @@ export default class TileGridRenderer extends VerticesRenderer
             throw new Error("`value` is not type of number!");
 
         this._xOffset = value;
-        this.rebuild = true;
+        this._rebuild = true;
     }
 
     public get yOffset() : number { return this._yOffset; }
@@ -56,18 +56,18 @@ export default class TileGridRenderer extends VerticesRenderer
             throw new Error("`value` is not type of number!");
 
         this._yOffset = value;
-        this.rebuild = true;
+        this._rebuild = true;
     }
 
     public set tileFactoryType(value : typeof TileFactory)
     {
         if(!(value instanceof Function) || !value.constructor)
-            throw new Error("`value` is not representing a subtype information of TileFactory")
+            throw new Error("`value` is not representing a subtype information of TileFactory");
 
         const factorySystem = <TileFactorySystem>System.get("TileFactorySystem");
         const factoryType = factorySystem.get(value.constructor.name);
 
-        this.tileFactory = new factoryType();
+        this._tileFactory = new factoryType();
     }
 
     public get tileSet() : TileSetAsset | null { return this._tileSet; }
@@ -76,23 +76,11 @@ export default class TileGridRenderer extends VerticesRenderer
         if(value == null || !(value instanceof TileSetAsset))
             throw new Error("`value` is not type of TileSetAsset!");
 
-        const overrideSamplers = <Map<string, object>>this.overrideSamplers;
-        const sampler = <Sampler>overrideSamplers.get('sBase');
-
-        if (!sampler)
-        {
-            overrideSamplers.set('sBase', <Sampler>{
-                texture: value.texture,
-                filtering: 'nearest'
-            });
-        }
-        else
-        {
-            sampler.texture = value.texture;
-        }
-
         this._tileSet = value;
-        this.rebuild = true;
+
+        this.updateSamplers();
+
+        this._rebuild = true;
     }
 
     public constructor()
@@ -104,9 +92,9 @@ export default class TileGridRenderer extends VerticesRenderer
         this._xOffset = 0;
         this._yOffset = 0;
         this._tileSet = null;
-        this.tileFactory = new TileFactory();
+        this._tileFactory = new TileFactory();
         this.tiles = [];
-        this.rebuild = false;
+        this._rebuild = false;
     }
 
     public setTile(x : number, y : number, tile : Tile) : void
@@ -118,7 +106,7 @@ export default class TileGridRenderer extends VerticesRenderer
             throw new Error("`y` is out of range!");
 
         this.tiles[x + y * this.cols] = tile;
-        this.rebuild = true;
+        this._rebuild = true;
     }
 
     public getTile(x : number, y : number) : Tile | null
@@ -155,7 +143,7 @@ export default class TileGridRenderer extends VerticesRenderer
 
             for(let i = 0; i < value.length; i++)
             {
-                this.setTile(i % this.cols, Math.floor(i / this.rows), this.tileFactory.create(value[i]));
+                this.setTile(i % this.cols, Math.floor(i / this.rows), this._tileFactory.create(value[i]));
             }
         }
         else if(name === "tilesFactory")
@@ -166,7 +154,7 @@ export default class TileGridRenderer extends VerticesRenderer
             const factorySystem : TileFactorySystem = System.get<TileFactorySystem>("TileFactorySystem");
             const factoryType = factorySystem.get(value);
 
-            this.tileFactory = new factoryType();
+            this._tileFactory = new factoryType();
         }
         else if(name === "tileset")
         {
@@ -183,7 +171,7 @@ export default class TileGridRenderer extends VerticesRenderer
 
     private ensureVertices()
     {
-        if (!this.rebuild || !this._tileSet)
+        if (!this._rebuild || !this._tileSet)
             return;
 
         const { _cols, _rows, _xOffset, _yOffset } = this;
@@ -199,11 +187,11 @@ export default class TileGridRenderer extends VerticesRenderer
         const tileSetHeight = this._tileSet.height * this._tileSet.tileSize;
         const tileUnitSize = 1;
 
-        for(let y = 0; y < this._rows; y++)
+        for(let y = 0; y < _rows; y++)
         {
-            for(let x = 0; x < this._cols; x++)
+            for(let x = 0; x < _cols; x++)
             {
-                const tile = this.tiles[x + y * this._cols];
+                const tile = this.tiles[x + y * _cols];
 
                 if(!tile)
                     continue;
@@ -216,14 +204,8 @@ export default class TileGridRenderer extends VerticesRenderer
                 _frameBottomRight[0] = (tilePosX + this._tileSet.tileSize) / tileSetWidth;
                 _frameBottomRight[1] = (tilePosY + this._tileSet.tileSize) / tileSetHeight;
 
-                const xPos = x * tileUnitSize;
-                const yPos = y * tileUnitSize;
-
-                // vertices.push(
-                //     -_xOffset, -_yOffset, _frameTopLeft[0], _frameTopLeft[1],
-                //     _cols - _xOffset, -_yOffset, _frameBottomRight[0], _frameTopLeft[1],
-                //     _cols - _xOffset, _rows - _yOffset, _frameBottomRight[0], _frameBottomRight[1],
-                //     -_xOffset, _rows - _yOffset, _frameTopLeft[0], _frameBottomRight[1]);
+                const xPos = x * tileUnitSize - _xOffset;
+                const yPos = y * tileUnitSize - _yOffset;
 
                 vertices.push(
                     xPos, yPos, _frameTopLeft[0], _frameTopLeft[1],
@@ -239,7 +221,28 @@ export default class TileGridRenderer extends VerticesRenderer
         this.vertices = vertices;
         this.indices = indices;
 
-        this.rebuild = false;
+        this._rebuild = false;
+    }
+
+    private updateSamplers()
+    {
+        if(this._tileSet === null)
+            return;
+
+        const overrideSamplers = <Map<string, object>>this.overrideSamplers;
+        const sampler = <Sampler>overrideSamplers.get('sBase');
+
+        if (!sampler)
+        {
+            overrideSamplers.set('sBase', <Sampler>{
+                texture: this._tileSet.texture,
+                filtering: 'nearest'
+            });
+        }
+        else
+        {
+            sampler.texture = this._tileSet.texture;
+        }
     }
 
     public static factory() : TileGridRenderer

@@ -75,10 +75,22 @@ declare module "oxygen-core"
         public dispose() : void;
 
         public static readonly systems : AllSystems
+        public static readonly events : Events;
 
         public static get(typename : string) : System;
         public static get<T>(typename : string) : T;
         public static register(system : System) : void;
+    }
+
+    export default class Events
+    {
+        public constructor();
+
+        public dispose() : void;
+        public on(name : string, callback : Function) : void;
+        public off(name : string, callback : Function) : void;
+        public trigger(name : string, ...args : any[]) : void;
+        public triggerLater(name : string, ...args : any[]) : void;
     }
 
     export class AssetSystem extends System

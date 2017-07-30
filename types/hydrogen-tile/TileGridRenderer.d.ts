@@ -12,8 +12,8 @@ export default class TileGridRenderer extends VerticesRenderer {
     private _xOffset;
     private _yOffset;
     private _tileSet;
-    private tileFactory;
-    private rebuild;
+    private _tileFactory;
+    private _rebuild;
     private tiles;
     cols: number;
     rows: number;

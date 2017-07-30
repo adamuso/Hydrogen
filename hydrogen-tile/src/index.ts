@@ -10,6 +10,8 @@ import TileGridRenderer from "./TileGridRenderer";
 import {AssetSystem, EntitySystem, System} from "oxygen-core";
 import {HydrogenModule} from "hydrogen-core";
 
+export class HydrogenTile extends HydrogenModule {}
+
 export default {
     Tile,
     TileFactory,

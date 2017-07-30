@@ -3,6 +3,8 @@
  */
 
 import Tile from "./Tile";
+import {System} from "oxygen-core";
+import TileFactorySystem from "./TileFactorySystem";
 
 export default class TileFactory
 {
@@ -13,5 +15,10 @@ export default class TileFactory
             return new Tile(data);
 
         throw new Error("`data` is in unknown format!");
+    }
+
+    public static register(factoryType : typeof TileFactory)
+    {
+        System.get<TileFactorySystem>("TileFactorySystem").register(factoryType);
     }
 }

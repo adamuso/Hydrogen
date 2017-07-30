@@ -39,12 +39,11 @@ export default class TileSetAsset extends Asset
 
         const { _descriptorAsset, _imageAsset } = this;
 
-        if (!!_descriptorAsset) {
+        if (!!_descriptorAsset)
             _descriptorAsset.dispose();
-        }
-        if (!!_imageAsset) {
+
+        if (!!_imageAsset)
             _imageAsset.dispose();
-        }
 
         this._descriptorAsset = null;
         this._imageAsset = null;
