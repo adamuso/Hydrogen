@@ -4,14 +4,12 @@
   "description": "",
   "main": "bin/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "node ./node_modules/typescript/bin/tsc -p ."
   },
   "dependencies": {
-    "oxygen-core": "^1.0.29"
-  },
-  "devDependencies": {
-    "@types/gl-matrix": "^2.2.34",
-    "@types/oxygen-core": "^0.0.1"
+    "oxygen-core": "1.0.32",
+    "typescript": "^2.4.2"
   },
   "keywords": [
     "hydrogen",

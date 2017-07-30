@@ -2,12 +2,14 @@
   "name": "hydrogen-tile-test",
   "version": "0.0.1",
   "dependencies": {
-    "oxygen-core": "^1.0.28",
-    "webpack": "^3.4.1",
-    "copy-webpack-plugin": "^4.0.1",
     "babel-loader": "^7.1.1",
+    "copy-webpack-plugin": "^4.0.1",
+    "oxygen-core": "1.0.32",
+    "single-module-instance-webpack-plugin": "^0.0.4",
+    "typescript": "^2.4.2",
+    "webpack": "^3.4.1",
     "webpack-dev-server": "^2.6.1",
-    "single-module-instance-webpack-plugin": "^0.0.4"
+    "duplicate-package-checker-webpack-plugin": "^1.2.5"
   },
   "main": "bin/index.js",
   "scripts": {
@@ -19,11 +21,11 @@
     "hydrogen",
     "core"
   ],
-  "devDependencies": {
-    "@types/gl-matrix": "^2.2.34",
-    "@types/oxygen-core": "^0.0.1"
-  },
   "author": "Adam Ogiba",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "ts-loader": "^2.3.2",
+    "typescript": "^2.4.2"
+  }
 }

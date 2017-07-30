@@ -39,12 +39,11 @@ export default class TileSetAsset extends Asset
 
         const { _descriptorAsset, _imageAsset } = this;
 
-        if (!!_descriptorAsset) {
+        if (!!_descriptorAsset)
             _descriptorAsset.dispose();
-        }
-        if (!!_imageAsset) {
+
+        if (!!_imageAsset)
             _imageAsset.dispose();
-        }
 
         this._descriptorAsset = null;
         this._imageAsset = null;
@@ -60,6 +59,12 @@ export default class TileSetAsset extends Asset
             throw new Error("`image` field doesn't exists!");
 
         const imageAsset = await this.owner.load<ImageAsset>(`image://${data.image}`);
+
+        if(!data.width)
+            data.width = Math.floor(imageAsset.data.width / data.tileSize);
+
+        if(!data.height)
+            data.height = Math.floor(imageAsset.data.height / data.tileSize);
 
         this.data = {
             descriptor: data,

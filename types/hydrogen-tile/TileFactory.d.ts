@@ -4,4 +4,5 @@
 import Tile from "./Tile";
 export default class TileFactory {
     create(data: any): Tile;
+    static register(factoryType: typeof TileFactory): void;
 }

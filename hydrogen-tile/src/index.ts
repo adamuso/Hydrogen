@@ -7,8 +7,10 @@ import TileFactorySystem from "./TileFactorySystem";
 import TileFactory from "./TileFactory";
 import TileSetAsset from "./TileSetAsset";
 import TileGridRenderer from "./TileGridRenderer";
-import {AssetSystem, System} from "oxygen-core";
+import {AssetSystem, EntitySystem, System} from "oxygen-core";
 import {HydrogenModule} from "hydrogen-core";
+
+export class HydrogenTile extends HydrogenModule {}
 
 export default {
     Tile,
@@ -32,4 +34,5 @@ HydrogenModule.register(() =>
     System.get<TileFactorySystem>("TileFactorySystem").register(TileFactory);
 
     System.get<AssetSystem>("AssetSystem").registerProtocol("tileset", TileSetAsset.factory);
+    System.get<EntitySystem>("EntitySystem").registerComponent("TileGridRenderer", TileGridRenderer.factory);
 });

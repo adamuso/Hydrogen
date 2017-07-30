@@ -4,8 +4,8 @@
 import HydrogenModule from "./HydrogenModule";
 declare const _default: {
     HydrogenModule: typeof HydrogenModule;
-    lazyHydrogenInitialization: () => void;
+    lazyHydrogenInitialization: (...modules: any[]) => void;
 };
 export default _default;
 export { HydrogenModule, lazyHydrogenInitialization };
-declare function lazyHydrogenInitialization(): void;
+declare function lazyHydrogenInitialization(...modules: any[]): void;

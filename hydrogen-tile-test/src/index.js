@@ -38,13 +38,11 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 var _this = this;
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 var oxygen_core_1 = require("oxygen-core");
 var gl_matrix_1 = require("gl-matrix");
-var hydrogen_tile_1 = require("hydrogen-tile");
 var hydrogen_core_1 = require("hydrogen-core");
-// import TWEEN from 'tween.generated';
-// import GameController from './scripts/GameController';
+var hydrogen_tile_1 = require("hydrogen-tile");
 oxygen_core_1.lazyInitialization({
     asset: {
         pathPrefix: 'assets/',
@@ -52,8 +50,8 @@ oxygen_core_1.lazyInitialization({
     },
     render: { screen: 'screen-0' }
 });
-hydrogen_core_1.lazyHydrogenInitialization();
-var a = new hydrogen_tile_1.Tile(1);
+hydrogen_core_1.lazyHydrogenInitialization(hydrogen_tile_1.HydrogenTile);
+var a;
 var _a = oxygen_core_1.System.systems, AssetSystem = _a.AssetSystem, RenderSystem = _a.RenderSystem, EntitySystem = _a.EntitySystem;
 // EntitySystem.registerComponent('GameController', GameController.factory);
 gl_matrix_1.vec4.set(RenderSystem.clearColor, 1, 1, 1, 1);
@@ -72,4 +70,3 @@ gl_matrix_1.vec4.set(RenderSystem.clearColor, 1, 1, 1, 1);
         }
     });
 }); })();
-//# sourceMappingURL=index.js.map

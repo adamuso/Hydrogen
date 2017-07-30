@@ -54,16 +54,11 @@ declare module "oxygen-core"
 
     export class JSONAsset<TData> extends Asset
     {
-        public data : TData;
+        public data: TData;
 
-        load() : Promise<JSONAsset<TData>>;
+        load(): Promise<JSONAsset<TData>>;
 
-        public static factory(...args : any[]) : JSONAsset<any>;
-    }
-
-    export class ConfigAsset extends Asset
-    {
-
+        public static factory(...args: any[]): JSONAsset<any>;
     }
 
     export class ImageAsset extends Asset
@@ -80,10 +75,22 @@ declare module "oxygen-core"
         public dispose() : void;
 
         public static readonly systems : AllSystems
+        public static readonly events : Events;
 
         public static get(typename : string) : System;
         public static get<T>(typename : string) : T;
         public static register(system : System) : void;
+    }
+
+    export default class Events
+    {
+        public constructor();
+
+        public dispose() : void;
+        public on(name : string, callback : Function) : void;
+        public off(name : string, callback : Function) : void;
+        public trigger(name : string, ...args : any[]) : void;
+        public triggerLater(name : string, ...args : any[]) : void;
     }
 
     export class AssetSystem extends System
@@ -96,7 +103,8 @@ declare module "oxygen-core"
         public dispose() : void;
         public registerProtocol(protocol : string, assetConstructor : () => Asset) : void;
         public unregisterProtocol(protocol : string) : void;
-        public get(path : string) : any;
+        public get(path : string) : Asset;
+        public get<T>(path : string) : T;
 
         public load<T>(path : string) : Promise<T>;
         public loadSequence(paths : string[]) : any[];
@@ -107,7 +115,7 @@ declare module "oxygen-core"
 
     export class EntitySystem extends  System
     {
-
+        public registerComponent(componentName : string, componentCreator : () => Component) : void;
     }
 
     export class RenderSystem extends System

@@ -1,5 +1,9 @@
 {
   "assets": [
-    "tileset://tilesets/sprite-transparent.json"
+    "tileset://tilesets/tileset.json",
+    "scene://scenes/game.json",
+    "shader://shaders/sprite-transparent.json",
+    "shader://shaders/text-outline-transparent.json",
+    "font://fonts/verdana.fnt"
   ]
 }

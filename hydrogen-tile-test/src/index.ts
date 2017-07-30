@@ -2,13 +2,10 @@
  * Created by adame on 28.07.2017.
  */
 
-import { lazyInitialization, System, ConfigAsset } from "oxygen-core";
+import {JSONAsset, lazyInitialization, System} from "oxygen-core";
 import { vec4 } from 'gl-matrix';
-import { Tile } from "hydrogen-tile";
 import {lazyHydrogenInitialization} from "hydrogen-core";
-
-// import TWEEN from 'tween.generated';
-// import GameController from './scripts/GameController';
+import {HydrogenTile} from "hydrogen-tile";
 
 lazyInitialization({
     asset: {
@@ -18,9 +15,7 @@ lazyInitialization({
     render: { screen: 'screen-0' }
 });
 
-lazyHydrogenInitialization();
-
-let a : Tile = new Tile(1);
+lazyHydrogenInitialization(HydrogenTile);
 
 const {
     AssetSystem,
@@ -34,10 +29,8 @@ vec4.set(RenderSystem.clearColor, 1, 1, 1, 1);
 
 (async() =>
 {
-    let configAsset = await AssetSystem.load<ConfigAsset>('json://config.json');
+    let configAsset = await AssetSystem.load<JSONAsset<{ assets : string[] }>>('json://config.json');
     await AssetSystem.loadSequence(configAsset.data.assets);
 
-    System.events.triggerLater(
-            'change-scene',
-            'scene://scenes/game.json');
+    System.events.triggerLater('change-scene', 'scene://scenes/game.json');
 })();

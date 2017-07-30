@@ -14,7 +14,7 @@ export {
     lazyHydrogenInitialization
 }
 
-function lazyHydrogenInitialization()
+function lazyHydrogenInitialization(...modules : any[])
 {
     HydrogenModule.initialize();
 }
