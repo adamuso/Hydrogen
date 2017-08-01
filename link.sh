@@ -40,6 +40,7 @@ if [ -d "types" ] && [ -f "LICENSE" ] && [ -f ".gitignore" ]; then
     link "types/hydrogen-core";
     link "types/hydrogen-tile" "@types/hydrogen-core";
     link "hydrogen-core" "@types/oxygen-core";
+    link "hydrogen-story" "@types/oxygen-core" "@types/hydrogen-core" "hydrogen-core";
     link "hydrogen-tile" "@types/oxygen-core" "@types/hydrogen-core" "hydrogen-core";
     link "hydrogen-tile-test" "@types/oxygen-core" "@types/hydrogen-core" "@types/hydrogen-tile" "hydrogen-core" "hydrogen-tile";
 else

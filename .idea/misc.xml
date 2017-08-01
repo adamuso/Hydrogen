@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectResources">
+    <resource url="http://json-schema.org/schema#" location="$PROJECT_DIR$/hydrogen-dialogues/dialog_json_scheme.json" />
+  </component>
+</project>

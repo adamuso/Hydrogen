@@ -28,5 +28,6 @@ export default class TileGridRenderer extends VerticesRenderer {
     onRender(gl: WebGLRenderingContext, renderer: RenderSystem, deltaTime: number): void;
     onPropertySetup(name: string, value: any): void;
     private ensureVertices();
+    private updateSamplers();
     static factory(): TileGridRenderer;
 }

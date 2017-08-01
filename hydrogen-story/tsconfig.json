@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es5",
+    "lib": ["DOM", "scripthost", "es5", "es6"],
+    "noImplicitReturns": true,
+    "sourceMap": true,
+    "sourceRoot": "src",
+    "rootDir": "src",
+    "outDir": "bin",
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "declarationDir": "../types/hydrogen-story",
+    "declaration": true
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}

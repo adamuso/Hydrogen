@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JsonSchemaMappingsProjectConfiguration">
+    <state>
+      <map>
+        <entry key="dialog_json_scheme">
+          <value>
+            <SchemaInfo>
+              <option name="name" value="dialog_json_scheme" />
+              <option name="relativePathToSchema" value="hydrogen-dialogues\dialog_json_scheme.json" />
+            </SchemaInfo>
+          </value>
+        </entry>
+      </map>
+    </state>
+  </component>
+</project>
