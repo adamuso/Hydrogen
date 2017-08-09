@@ -1,0 +1,9 @@
+{
+  "assets": [
+    "story://stories/story.json",
+    "scene://scenes/game.json",
+    "shader://shaders/sprite-transparent.json",
+    "shader://shaders/text-outline-transparent.json",
+    "font://fonts/verdana.fnt"
+  ]
+}

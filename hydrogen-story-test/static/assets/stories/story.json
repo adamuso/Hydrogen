@@ -1,0 +1,51 @@
+{
+  "dialogue1": {
+    "type": "dialogue",
+    "start": "char1-t1",
+
+    "char1-t1": {
+      "type": "text",
+      "data": "Podaj hasło",
+      "next": "char1-t2"
+    },
+    "char1-t2": {
+      "type": "choice",
+      "data": "Czy ty lubisz placki?",
+      "options": {
+        "yes": {
+          "text": "Lubie placki",
+          "next": "char1-t3"
+        },
+        "no": {
+          "text": "Ptaki latają kluczem",
+          "next": "char1-t4"
+        }
+      }
+    },
+    "char1-t3": {
+      "type": "ambient",
+      "data": "Drzwi otworzyły sie",
+      "next": "innerDialogue1 char1-end"
+    },
+    "char1-t4": {
+      "type": "ambient",
+      "data": "Slyszysz jak ktoś odchodzi od drzwi",
+      "next": "char1-end"
+    },
+    "char1-end": {
+      "type": "control",
+      "data": "end"
+    },
+
+    "innerDialogue1": {
+      "type": "dialogue",
+      "start": "t1",
+
+      "t1": {
+        "type": "thoughts",
+        "data": "Wejde do środka i się rozejrze",
+        "next": "{0}"
+      }
+    }
+  }
+}

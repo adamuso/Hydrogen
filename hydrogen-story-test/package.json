@@ -1,0 +1,32 @@
+{
+  "name": "hydrogen-story-test",
+  "version": "0.0.1",
+  "dependencies": {
+    "babel-loader": "^7.1.1",
+    "copy-webpack-plugin": "^4.0.1",
+    "oxygen-core": "^1.0.38",
+    "single-module-instance-webpack-plugin": "^0.0.4",
+    "typescript": "^2.4.2",
+    "webpack": "^3.4.1",
+    "webpack-dev-server": "^2.6.1",
+    "duplicate-package-checker-webpack-plugin": "^1.2.5"
+  },
+
+  "main": "bin/index.js",
+  "scripts": {
+    "dev": "./node_modules/.bin/webpack-dev-server --port 8080",
+    "build-dev": "./node_modules/.bin/webpack"
+  },
+  "keywords": [
+    "oxygen",
+    "hydrogen",
+    "core"
+  ],
+  "author": "Adam Ogiba",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "ts-loader": "^2.3.2",
+    "typescript": "^2.4.2"
+  }
+}

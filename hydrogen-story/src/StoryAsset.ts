@@ -25,11 +25,16 @@ export default class StoryAsset extends Asset
 
     public async load() : Promise<StoryAsset>
     {
-        const descriptorAsset = await this.owner.load<JSONAsset<any>>(this.filename);
+        const descriptorAsset = await this.owner.load<JSONAsset<any>>("json://" + this.filename);
 
         this._descriptorAsset = descriptorAsset;
         this.data = descriptorAsset.data;
 
         return this;
+    }
+
+    public static factory(...args : any[]) : StoryAsset
+    {
+        return new StoryAsset(args[0], args[1], args[2]);
     }
 }

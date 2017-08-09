@@ -22,7 +22,7 @@ declare module "oxygen-core/bin/systems/AssetSystem/Asset.js"
 
 declare module "oxygen-core"
 {
-    import {vec4} from "gl-matrix";
+    import {vec4, vec2} from "gl-matrix";
 
     export function lazyInitialization(settings : { asset : { pathPrefix : string, fetchOptions : object}, render : { screen : string } }) : void;
 
@@ -68,6 +68,26 @@ declare module "oxygen-core"
         public dispose() : void;
         public load() : Promise<ImageAsset>;
         public static factory(...args : any[]) : ImageAsset;
+    }
+
+    export class Script extends Component
+    {
+        public listenTo : number;
+
+        public constructor();
+
+        public dispose() : void;
+        public onAction(name : string, ...args : any[]) : any
+        public onPropertySetup(name : string, value : any[]) : void;
+        public onUpdate(deltaTime : number) : any;
+        public onRender(gl : WebGLRenderingContext, renderer : RenderSystem, deltaTime : number) : any;
+        public onMouseDown(unitVec : vec2, screenVec : vec2) : any;
+        public onMouseUp(unitVec : vec2, screenVec : vec2) : any;
+        public onMouseMove(unitVec : vec2, screenVec : vec2) : any;
+        public onKeyDown(code : number) : any;
+        public onKeyUp(code : number) : any;
+        public onGamepadConnected(gamepad : any) : any;
+        public onGamepadDisconnected(gamepad : any) : any;
     }
 
     export class System

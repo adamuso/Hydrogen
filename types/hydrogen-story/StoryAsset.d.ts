@@ -9,4 +9,5 @@ export default class StoryAsset extends Asset {
     constructor(owner: AssetSystem, protocol: string, filename: string);
     dispose(): void;
     load(): Promise<StoryAsset>;
+    static factory(...args: any[]): StoryAsset;
 }

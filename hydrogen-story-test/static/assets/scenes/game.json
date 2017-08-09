@@ -1,0 +1,22 @@
+{
+  "name": "root",
+  "components": {
+    "Camera2D": {
+      "zoomOut": 256,
+      "zoomMode": "keep-aspect"
+    },
+    "GameStoryController": {
+      "listenTo": ["key-down"]
+    },
+    "TextRenderer": {
+      "shader": "shaders/text-outline-transparent.json",
+      "font": "fonts/verdana.fnt",
+      "color": "FFFFFFFF",
+      "colorOutline": "000000FF",
+      "halign": "right",
+      "valign": "middle",
+      "filtering": "nearest",
+      "text": "Hello!"
+    }
+  }
+}

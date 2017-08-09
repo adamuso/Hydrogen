@@ -1,0 +1,39 @@
+{
+  "name": "hydrogen-story-editor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bin/index.js",
+  "scripts": {
+    "build": "webpack -p",
+    "postinstall": "npm run build"
+  },
+  "dependencies": {
+    "@types/material-ui": "^0.17.21",
+    "@types/react": "^16.0.2",
+    "@types/react-dom": "^15.5.2",
+    "@types/semantic-ui": "^2.2.5",
+    "babel-polyfill": "^6.23.0",
+    "material-ui": "^0.18.7",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-tap-event-plugin": "^2.0.1",
+    "semantic-ui-css": "^2.2.12",
+    "semantic-ui-react": "^0.71.3",
+    "typescript": "^2.4.2",
+    "webpack": "^3.5.2"
+  },
+  "keywords": [
+    "hydrogen",
+    "tile",
+    "tileset",
+    "grid"
+  ],
+  "devDependencies": {
+    "awesome-typescript-loader": "^3.2.2",
+    "source-map-loader": "^0.2.1",
+    "css-loader": "^0.28.4"
+  },
+  "types": "index.d.ts",
+  "author": "Adam Ogiba",
+  "license": "ISC"
+}
