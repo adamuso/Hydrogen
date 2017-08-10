@@ -4,7 +4,6 @@
 
 import * as React from 'react';
 import {StoryEditor} from "./StoryEditor";
-import 'semantic-ui-css/semantic.min.css';
 
 interface EditorProperties
 {
@@ -28,7 +27,9 @@ export function onSave(filename : string, instance : any, meta : any, onEdit : a
 
 export function editor(props : EditorProperties)
 {
+    const story = JSON.parse(props.buffer.toString());
+
     return (
-        <StoryEditor/>
+        <StoryEditor story={story}/>
     );
 }

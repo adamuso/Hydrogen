@@ -45,7 +45,7 @@ if [ -d "types" ] && [ -f "LICENSE" ] && [ -f ".gitignore" ]; then
     link "hydrogen-tile" "@types/oxygen-core" "@types/hydrogen-core" "hydrogen-core";
     link "hydrogen-tile-test" "@types/oxygen-core" "@types/hydrogen-core" "@types/hydrogen-tile" "hydrogen-core" "hydrogen-tile";
     link "hydrogen-story-test" "@types/oxygen-core" "@types/hydrogen-core" "@types/hydrogen-story" "hydrogen-core" "hydrogen-story";
-    link "hydrogen-story-editor";
+    link "hydrogen-story-editor" "@types/oxygen-core" "@types/hydrogen-story" "hydrogen-story";
     link "hydrogen-story-editor-test" "hydrogen-story-editor";
 else
     echo "Bad working directory!"

@@ -25,7 +25,7 @@
     "char1-t3": {
       "type": "ambient",
       "data": "Drzwi otworzyły sie",
-      "next": "innerDialogue1 char1-end"
+      "next": "/innerDialogue1 /dialogue1/char1-end"
     },
     "char1-t4": {
       "type": "ambient",
@@ -35,17 +35,16 @@
     "char1-end": {
       "type": "control",
       "data": "end"
-    },
+    }
+  },
+  "innerDialogue1": {
+    "type": "dialogue",
+    "start": "t1",
 
-    "innerDialogue1": {
-      "type": "dialogue",
-      "start": "t1",
-
-      "t1": {
-        "type": "thoughts",
-        "data": "Wejde do środka i się rozejrze",
-        "next": "{0}"
-      }
+    "t1": {
+      "type": "thoughts",
+      "data": "Wejde do środka i się rozejrze",
+      "next": "{0}"
     }
   }
 }

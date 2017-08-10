@@ -5,7 +5,7 @@
 import {HydrogenModule} from "hydrogen-core";
 import {AssetSystem, System} from "oxygen-core";
 import StoryAsset from "./StoryAsset";
-import StoryController, {StoryState} from "./StoryController";
+import StoryController, {StoryState, StoryEntry} from "./StoryController";
 import {StoryChoiceState, StoryDialogueChoice} from "./StoryDialogueChoice";
 
 export default class HydrogenStory extends HydrogenModule {}
@@ -15,7 +15,8 @@ export {
     StoryAsset,
     StoryState,
     StoryChoiceState,
-    StoryDialogueChoice
+    StoryDialogueChoice,
+    StoryEntry
 }
 
 HydrogenModule.register(() =>

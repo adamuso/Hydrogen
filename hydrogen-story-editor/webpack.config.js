@@ -11,8 +11,7 @@ var config = {
     module: {
         loaders: [
             { test : /\.tsx?$/, include : APP_DIR, exclude: "/node_modules/", loader : 'awesome-typescript-loader'  },
-            { test: /\.json$/, loader: 'json-loader' },
-            { test: /\.css$/, loader: 'css-loader' }
+            { test: /\.json$/, loader: 'json-loader' }
         ]
     },
     output: {
@@ -25,7 +24,7 @@ var config = {
         'react': 'react'
     },
     resolve: {
-        extensions: [".tsx", ".ts", ".js", ".css"]
+        extensions: [".tsx", ".ts", ".js"]
     },
     devtool: 'source-map'
 };

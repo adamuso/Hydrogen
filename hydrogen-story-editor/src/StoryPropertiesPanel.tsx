@@ -4,10 +4,10 @@
 
 import * as React from "react"
 
-export class StoryPropertiesPanel extends React.Component
+export class StoryPropertiesPanel extends React.Component<any, any>
 {
     public render() : JSX.Element | null | any
     {
-        return (<div/>);
+        return (<div style={this.props.style}/>);
     }
 }

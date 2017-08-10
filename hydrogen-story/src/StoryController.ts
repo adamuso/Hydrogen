@@ -8,7 +8,7 @@ import StoryDialogue from "./StoryDialogue";
 
 export interface StoryEntry
 {
-    readonly [key : string] : any;
+    readonly [key : string] : any | StoryEntry;
 
     readonly type : string;
 }

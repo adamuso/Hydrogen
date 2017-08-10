@@ -5,7 +5,7 @@ import StoryAsset from "./StoryAsset";
 import { StoryElement } from "./StoryElement";
 import StoryDialogue from "./StoryDialogue";
 export interface StoryEntry {
-    readonly [key: string]: any;
+    readonly [key: string]: any | StoryEntry;
     readonly type: string;
 }
 export interface StoryDialogueEntry extends StoryEntry {
