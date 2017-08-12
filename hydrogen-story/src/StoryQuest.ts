@@ -3,11 +3,11 @@
  */
 
 import {StoryElement} from "./StoryElement";
-import StoryController, {StoryEntry, EntryData} from "./StoryController";
+import StoryController, {StoryEntry, StoryEntryData} from "./StoryController";
 
 export default class StoryQuest extends StoryElement
 {
-    public constructor(controller : StoryController, entryData : EntryData)
+    public constructor(controller : StoryController, entryData : StoryEntryData)
     {
         super(controller, entryData);
     }

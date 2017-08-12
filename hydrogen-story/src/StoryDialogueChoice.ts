@@ -3,7 +3,7 @@
  */
 
 import {StoryElement} from "./StoryElement";
-import {EntryData, default as StoryController, StoryEntry, StoryState} from "./StoryController";
+import {StoryEntryData, default as StoryController, StoryEntry, StoryState} from "./StoryController";
 
 export interface StoryChoiceEntry extends StoryEntry
 {
@@ -52,7 +52,7 @@ export class StoryDialogueChoice extends StoryElement
         this._choiceState.option = optionName;
     }
 
-    public constructor(controller : StoryController, entryData : EntryData)
+    public constructor(controller : StoryController, entryData : StoryEntryData)
     {
         super(controller, entryData);
 

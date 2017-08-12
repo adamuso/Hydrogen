@@ -17,7 +17,7 @@
     "tileset",
     "grid"
   ],
-  "types": "index.d.ts",
+  "types": "bin/index.d.ts",
   "author": "Adam Ogiba",
   "license": "ISC"
 }

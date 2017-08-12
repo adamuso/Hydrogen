@@ -4,6 +4,9 @@
 
 import * as React from 'react';
 import {StoryEditor} from "./StoryEditor";
+import * as injectTapEventPlugin from "react-tap-event-plugin";
+
+(injectTapEventPlugin as any)();
 
 interface EditorProperties
 {

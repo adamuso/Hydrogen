@@ -2,9 +2,11 @@
  * Created by adame on 30.07.2017.
  */
 
-import StoryAsset from "./StoryAsset";
+///<reference path="StoryAsset.ts"/>
+
 import {StoryElement} from "./StoryElement";
 import StoryDialogue from "./StoryDialogue";
+import {StoryAssetDataContainer} from "./StoryAsset";
 
 export interface StoryEntry
 {
@@ -28,7 +30,7 @@ export interface StoryState
     [key : string] : string | number | StoryState | string[] | number[] | StoryState[] | undefined;
 }
 
-export interface EntryData
+export interface StoryEntryData
 {
     entry : StoryEntry;
     state : StoryState;
@@ -38,14 +40,14 @@ export interface EntryData
 
 export default class StoryController
 {
-    private _story : StoryAsset | null;
+    private _story : StoryAssetDataContainer | null;
     private _state : StoryState;
 
-    public get story() : StoryAsset | null { return this._story; }
-    public set story(value : StoryAsset | null)
+    public get story() : StoryAssetDataContainer | null { return this._story; }
+    public set story(value : StoryAssetDataContainer | null)
     {
-        if(!(value instanceof StoryAsset) || value === null)
-            throw new Error("`value` is not a type of StoryAsset!");
+        if(!value || !value.data)
+            throw new Error("`value` is not a type of StoryAssetDataContainer!");
 
         this._story = value;
     }
@@ -56,7 +58,7 @@ export default class StoryController
         this._state = {};
     }
 
-    public getEntryData(name : string, callerEntry : EntryData | null) : EntryData
+    public getEntryData(name : string, callerEntry : StoryEntryData | null) : StoryEntryData
     {
         if(this._story === null )
             throw new Error("Story is not set!");

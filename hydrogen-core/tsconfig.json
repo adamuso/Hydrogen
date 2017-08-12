@@ -9,10 +9,13 @@
     "rootDir": "src",
     "outDir": "bin",
     "noImplicitAny": true,
-    "declarationDir": "../types/hydrogen-core",
+    "declarationDir": "bin",
     "declaration": true
   },
   "exclude": [
     "node_modules"
+  ],
+  "include": [
+    "src"
   ]
 }

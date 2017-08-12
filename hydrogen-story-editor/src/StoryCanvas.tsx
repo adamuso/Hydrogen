@@ -3,6 +3,7 @@
  */
 
 import * as React from "react";
+import {StoryAssetDataContainer, StoryEntryData, StoryController} from "hydrogen-story";
 
 const requestAnimFrame : (callback : () => void) => void = (function()
 {
@@ -15,15 +16,35 @@ const requestAnimFrame : (callback : () => void) => void = (function()
         };
 })();
 
-export class StoryCanvas extends React.Component<any, HTMLCanvasElement>
+interface StoryCanvasProps
 {
+    style?: object;
+    ref?: (self : StoryCanvas) => void;
+    story: StoryAssetDataContainer;
+}
+
+export class StoryCanvas extends React.Component<StoryCanvasProps, HTMLCanvasElement>
+{
+    private a : StoryController;
     private _isOnScreen : boolean;
     private _canvasContext : CanvasRenderingContext2D | null;
     private _canvas : HTMLCanvasElement | null;
+    private _entryData : StoryEntryData;
 
-    public constructor(props: any)
+    public set entryData(value : StoryEntryData)
+    {
+        if(!value || typeof value != "object" || !value.entry || !value.state || !value.path)
+            throw new Error("`value` is not type of StoryEntryData!");
+
+        this._entryData = value;
+    }
+
+    public constructor(props: StoryCanvasProps)
     {
         super(props);
+
+        if(props.ref)
+            props.ref(this);
 
         this._isOnScreen = false;
         this._canvas = null;

@@ -4,26 +4,31 @@
 
 import {Asset, AssetSystem, JSONAsset} from "oxygen-core";
 
-export default class StoryAsset extends Asset
+export interface StoryAssetDataContainer
 {
-    private _descriptorAsset : JSONAsset<any>;
+    data: any;
+}
 
-    public data : any;
+export default class StoryAsset extends Asset implements StoryAssetDataContainer
+{
+    private _descriptorAsset: JSONAsset<any>;
 
-    public constructor(owner : AssetSystem, protocol : string, filename : string)
+    public data: any;
+
+    public constructor(owner: AssetSystem, protocol: string, filename: string)
     {
         super(owner, protocol, filename);
     }
 
-    public dispose() : void
+    public dispose(): void
     {
-        const { _descriptorAsset } = this;
+        const {_descriptorAsset} = this;
 
-        if(!!_descriptorAsset)
+        if (!!_descriptorAsset)
             _descriptorAsset.dispose();
     }
 
-    public async load() : Promise<StoryAsset>
+    public async load(): Promise<StoryAsset>
     {
         const descriptorAsset = await this.owner.load<JSONAsset<any>>("json://" + this.filename);
 
@@ -33,7 +38,7 @@ export default class StoryAsset extends Asset
         return this;
     }
 
-    public static factory(...args : any[]) : StoryAsset
+    public static factory(...args: any[]): StoryAsset
     {
         return new StoryAsset(args[0], args[1], args[2]);
     }

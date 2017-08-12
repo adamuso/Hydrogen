@@ -15,7 +15,7 @@ var DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-p
 var config = {
     entry: [
         'babel-polyfill',
-        APP_DIR + '/index.tsx'
+        APP_DIR + '/index.ts'
     ],
     module: {
         loaders: [

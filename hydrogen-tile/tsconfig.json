@@ -10,10 +10,13 @@
     "outDir": "bin",
     "noImplicitAny": true,
     "strictNullChecks": true,
-    "declarationDir": "../types/hydrogen-tile",
+    "declarationDir": "bin",
     "declaration": true
   },
   "exclude": [
     "node_modules"
+  ],
+  "include": [
+    "src"
   ]
 }

@@ -3,8 +3,9 @@
  */
 
 import {StoryElement} from "./StoryElement";
-import StoryController, {EntryData, StoryDialogueEntry, StoryEntry, StoryState} from "./StoryController";
+import StoryController, {StoryEntryData, StoryDialogueEntry, StoryEntry, StoryState} from "./StoryController";
 import {StoryChoiceEntry, StoryChoiceState} from "./StoryDialogueChoice";
+import StoryControlElement from "./StoryControlElement";
 
 export interface StoryTextEntry extends StoryEntry
 {
@@ -27,13 +28,15 @@ export interface StoryDialogueState extends StoryState
     current : string;
 }
 
-export default class StoryDialogue extends StoryElement
+export default class StoryDialogue extends StoryControlElement
 {
+    public static get uid() { return "StoryDialogue"; }
+
     private _entry: StoryDialogueEntry;
     private _state : StoryDialogueState;
-    private _current : EntryData | null;
+    private _current : StoryEntryData | null;
 
-    public constructor(controller : StoryController, entryData : EntryData)
+    public constructor(controller : StoryController, entryData : StoryEntryData)
     {
         super(controller, entryData);
 
@@ -72,7 +75,7 @@ export default class StoryDialogue extends StoryElement
         }
     }
 
-    public getCurrentElement<T extends StoryElement>(type : { new(controller : StoryController, entry : EntryData) : T }) : T | null
+    public getCurrentElement<T extends StoryElement>(type : { new(controller : StoryController, entry : StoryEntryData) : T }) : T | null
     {
         const { _current } = this;
 
