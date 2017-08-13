@@ -3,9 +3,6 @@
  */
 
 import * as React from 'react';
-
-console.log(React);
-
 import {StoryEditor} from "./StoryEditor";
 import * as injectTapEventPlugin from "react-tap-event-plugin";
 

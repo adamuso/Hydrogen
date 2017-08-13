@@ -4,15 +4,13 @@
     "src",
     "static/assets"
   ],
-  "systems": [
-  ],
   "components": [
   ],
   "editors": {
-    "\\.(jsx?|tsx?|json|vs|fs|fnt)$": "ace-nitrogen-editor",
-    "\\.(png|jpe?g|gif)$": "image-nitrogen-viewer",
-    "^static/assets/shaders/.*\\.json$": "oxygen-shader-nitrogen-editor",
-    "^static/assets/stories/.*\\.json$": "hydrogen-story-editor"
+    "\\.(jsx?|tsx?|json|vs|fs|fnt|txt|log|csv)$": "unpkg:ace-nitrogen-editor",
+    "\\.(png|jpe?g|gif)$": "unpkg:image-nitrogen-viewer",
+    "^static\/assets\/shaders\/.*\\.json$": "unpkg:oxygen-shader-nitrogen-editor",
+    "^static\/assets\/stories\/.*\\.json$": "hydrogen-story-editor"
   },
   "editOnly": false
 }

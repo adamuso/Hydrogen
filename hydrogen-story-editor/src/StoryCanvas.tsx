@@ -19,7 +19,7 @@ const requestAnimFrame : (callback : () => void) => void = (function()
 interface StoryCanvasProps
 {
     style?: object;
-    ref?: (self : StoryCanvas) => void;
+    reference?: (self : StoryCanvas) => void;
     story: StoryAssetDataContainer;
 }
 
@@ -42,8 +42,8 @@ export class StoryCanvas extends React.Component<StoryCanvasProps, HTMLCanvasEle
     {
         super(props);
 
-        if(props.ref)
-            props.ref(this);
+        if(props.reference)
+            props.reference(this);
 
         this._isOnScreen = false;
         this._canvas = null;

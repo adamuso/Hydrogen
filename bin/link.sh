@@ -70,8 +70,8 @@ if [ -d "types" ] && [ -f "LICENSE" ] && [ -f ".gitignore" ]; then
     link "hydrogen-core" "@types/oxygen-core";
     link "hydrogen-story" "@types/oxygen-core" "hydrogen-core";
     link "hydrogen-tile" "@types/oxygen-core" "hydrogen-core";
-    link "hydrogen-tile-test" "@types/oxygen-core" "hydrogen-core" "hydrogen-tile";
-    link "hydrogen-story-test" "@types/oxygen-core" "hydrogen-core" "hydrogen-story";
+    link "hydrogen-tile-test" "hydrogen-core" "hydrogen-tile";
+    link "hydrogen-story-test" "hydrogen-core" "hydrogen-story";
     link "hydrogen-story-editor" "@types/oxygen-core" "hydrogen-story";
     link "hydrogen-story-editor-test" "@types/oxygen-core" "hydrogen-story-editor";
 else

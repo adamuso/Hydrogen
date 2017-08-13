@@ -21,13 +21,9 @@ var config = {
         libraryTarget: "commonjs"
     },
     externals: {
-        'react': 'React',
-        'react-dom': 'ReactDOM'
+        'react': 'react'
     },
     resolve: {
-        alias: {
-            'react': path.join(__dirname, 'node_modules', 'react')
-        },
         extensions: [".tsx", ".ts", ".js"]
     },
     devtool: 'source-map'

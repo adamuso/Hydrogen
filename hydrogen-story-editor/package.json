@@ -14,13 +14,13 @@
     "@types/react-dom": "^15.5.2",
     "babel-polyfill": "^6.23.0",
     "material-ui": "^0.18.7",
+    "material-ui-superselectfield": "^1.5.4",
+    "oxygen-core": "^1.0.50",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-tap-event-plugin": "^2.0.1",
     "typescript": "^2.4.2",
-    "webpack": "^3.5.2",
-    "oxygen-core": "^1.0.49",
-    "material-ui-superselectfield": "^1.5.4"
+    "webpack": "^3.5.4"
   },
   "keywords": [
     "hydrogen",

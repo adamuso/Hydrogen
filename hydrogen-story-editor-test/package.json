@@ -12,15 +12,12 @@
   },
   "dependencies": {
     "typescript": "^2.4.2",
-    "nitrogen-webpack-plugin": "^1.0.5",
+    "nitrogen-webpack-plugin": "^1.0.6",
     "webpack": "^3.5.2",
     "webpack-dev-server": "^2.7.1",
     "copy-webpack-plugin": "^4.0.1",
     "babel-polyfill": "^6.23.0",
-    "ts-loader": "^2.3.2",
-    "ace-nitrogen-editor": "^1.0.9",
-    "image-nitrogen-viewer": "^1.0.4",
-    "oxygen-shader-nitrogen-editor": "^1.0.1"
+    "ts-loader": "^2.3.2"
   },
   "keywords": [
     "hydrogen",

@@ -66,7 +66,7 @@ export class StoryEditor extends React.Component<StoryEditorProps, { storyMenuEl
                   </ToolbarGroup>
                 </Toolbar>
                 <div style={{ height: "calc(100% - 55px)" }}>
-                    <StoryCanvas ref={(self) => this._storyCanvas = self} style={canvasStyle} story={this.props.story}/>
+                    <StoryCanvas reference={(self) => this._storyCanvas = self} style={canvasStyle} story={this.props.story}/>
                     <StoryPropertiesPanel style={propertiesStyle} story={this.props.story}/>
                 </div>
             </div>

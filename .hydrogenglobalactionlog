@@ -1,0 +1,191 @@
+
+[32m------- types/oxygen-core -------[39m
+
+[34mnpm - build-dev[39m
+
+> @types/oxygen-core@0.0.1 build-dev F:\dev\Hydrogen\types\oxygen-core
+> echo No build-dev needed
+
+No build-dev needed
+[34m---[39m
+
+[32m------- hydrogen-core -------[39m
+
+[34mnpm - build-dev[39m
+
+> hydrogen-core@0.0.1 build-dev F:\dev\Hydrogen\hydrogen-core
+> npm run build
+
+
+> hydrogen-core@0.0.1 build F:\dev\Hydrogen\hydrogen-core
+> node ./node_modules/typescript/bin/tsc -p .
+
+[34m---[39m
+
+[32m------- hydrogen-story -------[39m
+
+[34mnpm - build-dev[39m
+
+> hydrogen-story@1.0.0 build-dev F:\dev\Hydrogen\hydrogen-story
+> npm run build
+
+
+> hydrogen-story@1.0.0 build F:\dev\Hydrogen\hydrogen-story
+> node ./node_modules/typescript/bin/tsc -p .
+
+[34m---[39m
+
+[32m------- hydrogen-tile -------[39m
+
+[34mnpm - build-dev[39m
+
+> hydrogen-tile@1.0.0 build-dev F:\dev\Hydrogen\hydrogen-tile
+> npm run build
+
+
+> hydrogen-tile@1.0.0 build F:\dev\Hydrogen\hydrogen-tile
+> node ./node_modules/typescript/bin/tsc -p .
+
+[34m---[39m
+
+[32m------- hydrogen-tile-test -------[39m
+
+[34mnpm - build-dev[39m
+
+> hydrogen-tile-test@0.0.1 build-dev F:\dev\Hydrogen\hydrogen-tile-test
+> webpack
+
+ts-loader: Using typescript@2.4.2 and F:\dev\Hydrogen\hydrogen-tile-test\tsconfig.json
+Hash: 877d416fcaab2ee1f66d
+Version: webpack 3.5.4
+Time: 7374ms
+                                       Asset       Size  Chunks                    Chunk Names
+                  assets/fonts/verdana_0.png    21.7 kB          [emitted]         
+                                      app.js    1.76 MB       0  [emitted]  [big]  main
+                   assets/images/tileset.png     378 kB          [emitted]  [big]  
+                          assets/config.json  233 bytes          [emitted]         
+                     assets/scenes/game.json  923 bytes          [emitted]         
+      assets/shaders/sprite-transparent.json  577 bytes          [emitted]         
+                    assets/shaders/sprite.fs  146 bytes          [emitted]         
+                                  index.html  345 bytes          [emitted]         
+                    assets/shaders/sprite.vs  251 bytes          [emitted]         
+                      assets/shaders/text.vs  315 bytes          [emitted]         
+                assets/tilesets/tileset.json   56 bytes          [emitted]         
+                    assets/fonts/verdana.fnt    11.1 kB          [emitted]         
+assets/shaders/text-outline-transparent.json    1.02 kB          [emitted]         
+              assets/shaders/text-outline.fs  817 bytes          [emitted]         
+ [105] (webpack)/buildin/global.js 509 bytes {0} [built]
+ [154] ../hydrogen-core/bin/index.js 670 bytes {0} [built]
+ [155] ../hydrogen-tile/bin/Tile.js 289 bytes {0} [built]
+ [156] ../hydrogen-tile/bin/TileFactory.js 761 bytes {0} [built]
+ [157] ../hydrogen-tile/bin/TileSetAsset.js 6.34 kB {0} [built]
+ [158] multi babel-polyfill ./src/index.ts 40 bytes {0} [built]
+ [364] ./src/index.ts 3.85 kB {0} [built]
+ [374] ../hydrogen-core/bin/HydrogenModule.js 766 bytes {0} [built]
+ [375] ../hydrogen-tile/bin/index.js 2.21 kB {0} [built]
+ [376] ../hydrogen-tile/bin/TileFactorySystem.js 2.2 kB {0} [built]
+ [377] ../hydrogen-tile/bin/TileGridRenderer.js 8.92 kB {0} [built]
+    + 367 hidden modules
+[34m---[39m
+
+[32m------- hydrogen-story-test -------[39m
+
+[34mnpm - build-dev[39m
+
+> hydrogen-story-test@0.0.1 build-dev F:\dev\Hydrogen\hydrogen-story-test
+> webpack
+
+ts-loader: Using typescript@2.4.2 and F:\dev\Hydrogen\hydrogen-story-test\tsconfig.json
+Hash: 23a2e0a1dcf146f3fa90
+Version: webpack 3.5.4
+Time: 7776ms
+                                       Asset       Size  Chunks                    Chunk Names
+                    assets/shaders/sprite.vs  251 bytes          [emitted]         
+                                      app.js    2.21 MB       0  [emitted]  [big]  main
+                          assets/config.json  228 bytes          [emitted]         
+                     assets/scenes/game.json  495 bytes          [emitted]         
+      assets/shaders/sprite-transparent.json  577 bytes          [emitted]         
+                    assets/shaders/sprite.fs  146 bytes          [emitted]         
+                                  index.html  345 bytes          [emitted]         
+                  assets/fonts/verdana_0.png    21.7 kB          [emitted]         
+                      assets/shaders/text.vs  315 bytes          [emitted]         
+                   assets/stories/story.json    1.05 kB          [emitted]         
+                    assets/fonts/verdana.fnt    11.1 kB          [emitted]         
+assets/shaders/text-outline-transparent.json    1.02 kB          [emitted]         
+              assets/shaders/text-outline.fs  817 bytes          [emitted]         
+  [69] ../hydrogen-story/bin/StoryElement.js 408 bytes {0} [built]
+ [102] (webpack)/buildin/global.js 509 bytes {0} [built]
+ [149] ../hydrogen-core/bin/index.js 670 bytes {0} [built]
+ [150] ../hydrogen-story/bin/index.js 3.65 kB {0} [built]
+ [151] ../hydrogen-story/bin/StoryDialogue.js 3.84 kB {0} [built]
+ [152] ../hydrogen-story/bin/StoryControlElement.js 1.04 kB {0} [built]
+ [153] multi babel-polyfill ./src/index.ts 40 bytes {0} [built]
+ [337] ./src/index.ts 3.93 kB {0} [built]
+ [354] ../hydrogen-core/bin/HydrogenModule.js 766 bytes {0} [built]
+ [355] ../hydrogen-story/bin/StoryController.js 3.48 kB {0} [built]
+ [356] ../hydrogen-story/bin/StoryDialogueChoice.js 2.18 kB {0} [built]
+ [357] ../hydrogen-story/bin/StoryQuest.js 1 kB {0} [built]
+ [358] ../hydrogen-story/bin/StoryAsset.js 4.45 kB {0} [built]
+ [359] ./src/scripts/StoryController.ts 1.83 kB {0} [built]
+    + 346 hidden modules
+[34m---[39m
+
+[32m------- hydrogen-story-editor -------[39m
+
+[34mnpm - build-dev[39m
+
+> hydrogen-story-editor@1.0.0 build-dev F:\dev\Hydrogen\hydrogen-story-editor
+> webpack
+
+
+[at-loader] Using typescript@2.4.2 from typescript and "tsconfig.json" from F:\dev\Hydrogen\hydrogen-story-editor/tsconfig.json.
+
+
+[at-loader] Checking started in a separate process...
+
+[at-loader] Ok, 1.049 sec.
+Hash: fbfdcb66142db44b3af8
+Version: webpack 3.5.4
+Time: 14958ms
+       Asset     Size  Chunks                    Chunk Names
+    index.js  2.42 MB       0  [emitted]  [big]  main
+index.js.map  2.96 MB       0  [emitted]         main
+  [97] ../hydrogen-story/bin/StoryElement.js 408 bytes {0} [built]
+ [259] ../hydrogen-story/bin/StoryDialogue.js 3.84 kB {0} [built]
+ [260] ../hydrogen-story/bin/StoryControlElement.js 1.04 kB {0} [built]
+ [261] multi ./src/index.tsx 28 bytes {0} [built]
+ [262] ./src/index.tsx 816 bytes {0} [built]
+ [263] ./src/StoryEditor.tsx 4.24 kB {0} [built]
+ [264] ./src/StoryCanvas.tsx 3.54 kB {0} [built]
+ [265] ./src/StoryPropertiesPanel.tsx 1.13 kB {0} [built]
+ [582] ../hydrogen-story/bin/index.js 3.65 kB {0} [built]
+ [583] ../hydrogen-core/bin/index.js 670 bytes {0} [built]
+ [584] ../hydrogen-core/bin/HydrogenModule.js 766 bytes {0} [built]
+ [595] ../hydrogen-story/bin/StoryController.js 3.48 kB {0} [built]
+ [596] ../hydrogen-story/bin/StoryDialogueChoice.js 2.18 kB {0} [built]
+ [597] ../hydrogen-story/bin/StoryQuest.js 1 kB {0} [built]
+ [598] ../hydrogen-story/bin/StoryAsset.js 4.45 kB {0} [built]
+    + 590 hidden modules
+[34m---[39m
+
+[32m------- hydrogen-story-editor-test -------[39m
+
+[34mnpm - build-dev[39m
+
+> hydrogen-story-editor-test@1.0.0 build-dev F:\dev\Hydrogen\hydrogen-story-editor-test
+> webpack
+
+ts-loader: Using typescript@2.4.2 and F:\dev\Hydrogen\hydrogen-story-editor-test\tsconfig.json
+Hash: f2067ae3a961b392ca2a
+Version: webpack 3.5.4
+Time: 3419ms
+                    Asset       Size  Chunks                    Chunk Names
+                   app.js     266 kB       0  [emitted]  [big]  main
+               app.js.map     360 kB       0  [emitted]         main
+               index.html  337 bytes          [emitted]         
+assets/stories/story.json    1.06 kB          [emitted]         
+  [90] (webpack)/buildin/global.js 509 bytes {0} [built]
+ [124] multi babel-polyfill ./src/index.ts 40 bytes {0} [built]
+ [330] ./src/index.ts 46 bytes {0} [built]
+    + 328 hidden modules
+[34m---[39m
