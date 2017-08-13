@@ -3,7 +3,7 @@
  */
 
 import * as React from "react";
-import {StoryAssetDataContainer, StoryEntryData, StoryController} from "hydrogen-story";
+import {StoryAssetDataContainer, StoryEntryData} from "hydrogen-story";
 
 const requestAnimFrame : (callback : () => void) => void = (function()
 {
@@ -25,7 +25,6 @@ interface StoryCanvasProps
 
 export class StoryCanvas extends React.Component<StoryCanvasProps, HTMLCanvasElement>
 {
-    private a : StoryController;
     private _isOnScreen : boolean;
     private _canvasContext : CanvasRenderingContext2D | null;
     private _canvas : HTMLCanvasElement | null;

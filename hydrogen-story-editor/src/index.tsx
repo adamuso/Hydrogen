@@ -3,10 +3,14 @@
  */
 
 import * as React from 'react';
+
+console.log(React);
+
 import {StoryEditor} from "./StoryEditor";
 import * as injectTapEventPlugin from "react-tap-event-plugin";
 
 (injectTapEventPlugin as any)();
+console.log("HydrogenStoryEditor");
 
 interface EditorProperties
 {
@@ -30,7 +34,7 @@ export function onSave(filename : string, instance : any, meta : any, onEdit : a
 
 export function editor(props : EditorProperties)
 {
-    const story = JSON.parse(props.buffer.toString());
+    const story = { data: JSON.parse(props.buffer.toString()) };
 
     return (
         <StoryEditor story={story}/>

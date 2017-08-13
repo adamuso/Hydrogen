@@ -36,7 +36,8 @@ var config = {
         extensions: [".tsx", ".ts", ".js"]
     },
     externals: {
-        'react': 'react',
+        'react': 'React',
+        'react-dom': 'ReactDOM',
         'material-ui': 'material-ui',
         'material-ui/styles': 'material-ui/styles',
         'material-ui/svg-icons': 'material-ui/svg-icons'

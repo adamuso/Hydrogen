@@ -6,11 +6,9 @@ import * as React from "react"
 import {StoryCanvas} from "./StoryCanvas";
 import {StoryPropertiesPanel} from "./StoryPropertiesPanel";
 import {
-    Toolbar, ToolbarGroup, ToolbarTitle, RaisedButton, DropDownMenu, MenuItem
+    Toolbar, ToolbarGroup, ToolbarTitle, RaisedButton, AutoComplete
 } from "material-ui";
-import {StoryEntry} from "hydrogen-story";
-import SuperSelectField from "material-ui-superselectfield";
-import {StoryController, StoryAssetDataContainer, StoryEntryData} from "hydrogen-story";
+import {StoryEntry, StoryController, StoryAssetDataContainer, StoryEntryData} from "hydrogen-story";
 
 interface StoryEditorProps
 {
@@ -54,15 +52,14 @@ export class StoryEditor extends React.Component<StoryEditorProps, { storyMenuEl
         };
 
         const mainMenuItems = StoryEditor.generateMainMenuItems(this._controller, this.props.story.data);
+        const mainMenuItemsConfig = { text: 'label', value: 'value' };
 
         return (
             <div style={{ height: "100%" }}>
                 <Toolbar>
                   <ToolbarGroup firstChild={true}>
                       <RaisedButton label="Create element" primary={true}/>
-                      <SuperSelectField name="storyMenuElement" style={{ "minWidth": "200px" }} onChange={this.handleStoryMenuSelection.bind(this)}>
-                          {mainMenuItems}
-                      </SuperSelectField>
+                      <AutoComplete floatingLabelText="Choose story control element" filter={AutoComplete.noFilter} openOnFocus={true} dataSource={mainMenuItems} dataSourceConfig={mainMenuItemsConfig}/>
                   </ToolbarGroup>
                   <ToolbarGroup>
                       <ToolbarTitle text="Options" />
@@ -76,15 +73,9 @@ export class StoryEditor extends React.Component<StoryEditorProps, { storyMenuEl
         );
     }
 
-    //noinspection JSUnusedLocalSymbols
-    private static StoryMenuElement(props : JSX.ElementChildrenAttribute & { value: StoryEntryData, label: string })
+    private static generateMainMenuItems(controller : StoryController, story : { [key : string] : StoryEntry}, base : string = "") : { value : StoryEntryData, label : string}[]
     {
-        return <div {...props}>{props.children}</div>;
-    }
-
-    private static generateMainMenuItems(controller : StoryController, story : { [key : string] : StoryEntry}, base : string = "") : JSX.Element[] | null
-    {
-        let elements : JSX.Element[] = [];
+        let elements : { value : StoryEntryData, label : string}[] = [];
 
         for(const name in story)
         {
@@ -94,9 +85,9 @@ export class StoryEditor extends React.Component<StoryEditorProps, { storyMenuEl
             const entryData = controller.getEntryData(controller.resolveRelativePath(name, base), null);
 
             if(entryData.entry.type === "dialogue")
-                elements.push(<StoryEditor.StoryMenuElement value={entryData} label={"Dialogue: " + name}>{"Dialogue: " + name}</StoryEditor.StoryMenuElement>);
+                elements.push({ value: entryData, label: "Dialogue: " + name});
             else if(entryData.entry.type === "quest")
-                elements.push(<StoryEditor.StoryMenuElement value={entryData} label={"Quest: " + name}>{"Quest: " + name}</StoryEditor.StoryMenuElement>);
+                elements.push({ value: entryData, label: "Quest: " + name});
             else if(entryData.entry.type === "container")
                 elements.concat(StoryEditor.generateMainMenuItems(controller, entryData.entry, entryData.path));
         }
